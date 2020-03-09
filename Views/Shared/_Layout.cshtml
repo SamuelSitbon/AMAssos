@@ -1,10 +1,13 @@
-﻿<!DOCTYPE html>
+﻿@{
+    Adherent adherent = (Adherent)Session["Adherent"];
+}
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Mon application ASP.NET</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -15,12 +18,12 @@
 
     @RenderSection("AddToHeadAnotherWay", required: false)
 </head>
-<body>
+<body class="d-flex flex-column">
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <a class="navbar-brand" href="@Url.Action("Accueil","Home")">
 
-            <img src="@Url.Content("~/Images/General/logo-afpa.jpg")" height="30" alt="logo">
-            Afp<b style="color:#44a33d">Eats</b>
+            <img src="@Url.Content("~/Images/logo-AMA.png")" height="30" alt="logo">
+            A<b style="color:#42a8c9">M</b>A<b style="color:#42a8c9">ssos</b>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list-3" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -31,17 +34,40 @@
                     <a class="nav-item nav-link" href="@Url.Action("Accueil","Home")"><i class="fa fa-home"></i>Accueil</a>
                 </li>
                 <li class="nav-">
-                    <a class="nav-item nav-link" href="@Url.Action("Index","Produits")"><i class="fa fa-cutlery"></i>Produits</a>
+                    <a class="nav-item nav-link" href="@Url.Action("Index","Produits")"><i class="fa fa-cutlery"></i>Sorties</a>
                 </li>
             </ul>
-            <ul class="navbar-nav ml-auto">
+            @*<ul class="navbar-nav ml-auto">
                 <li class="nav-">
                     <a class="nav-item nav-link" href="@Url.Action("Panier","Home")">Panier</a>
                 </li>
-            </ul>
+            </ul>*@
+            @if (adherent != null)
+            {
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-">
+                        <a class="nav-item nav-link" href="@Url.Action("Edit","Adherents", new { id = adherent.IdAdherent })"><i class="fa fa-user"></i>@adherent.Prenom @adherent.Nom</a>
+                    </li>
+                </ul>
+            }
+            else
+            {
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-">
+                        <a class="nav-item nav-link" href="@Url.Action("Create","Adherents")">
+                            Inscription
+                        </a>
+                    </li>
+                    <li class="nav-">
+                        <a class="nav-item nav-link" href="@Url.Action("Connexion","Adherents")">
+                            Connexion
+                        </a>
+                    </li>
+                </ul>
+            }
         </div>
     </nav>
-    <div class="container body-content">
+    <div>
         @RenderBody()
     </div>
 

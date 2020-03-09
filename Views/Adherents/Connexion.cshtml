@@ -1,0 +1,42 @@
+﻿@model AMAssos.Adherent
+@{
+    ViewBag.Title = "Connexion";
+}
+
+@section AddToHead{
+    <link href="@Url.Content("~/Content/Connexion.css")" rel="stylesheet" type="text/css" />
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+            <!-- Tabs Titles -->
+            <!-- Icon -->
+            <div class="fadeIn first">
+                <img src="@Url.Content("~/Images/logo-AMA.png")" id="icon" alt="User Icon" />
+            </div>
+            <div>
+            </div>
+
+            <!-- Login Form -->
+            <div>
+                @Html.EditorFor(model => model.Login, new { htmlAttributes = new { @class = "fadeIn second", @placeholder = "Login" } })
+                @Html.ValidationMessageFor(model => model.Login, "", new { @class = "text-danger" })
+
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "fadeIn third", @placeholder = "Mot de Passe" } })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                <input type="submit" class="fadeIn fourth" value="Se Connecter" />
+            </div>
+
+            <!-- Remind Passowrd -->
+            @*<div id="formFooter">
+                <a class="underlineHover" href="#">Créer votre compte</a>
+            </div>*@
+
+        </div>
+    </div>
+}
