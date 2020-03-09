@@ -4,12 +4,12 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="3c290323100b4d3c9fcba952d0046f72" Name="Diagram1" ZoomLevel="71">
+      <Diagram DiagramId="bb48bfb9f2f24750ac6c53c7366386cd" Name="Diagram1">
         <EntityTypeShape EntityType="AMAssosModel.Adherent" Width="1.5" PointX="3" PointY="2" IsExpanded="true" />
         <EntityTypeShape EntityType="AMAssosModel.Association" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
         <EntityTypeShape EntityType="AMAssosModel.HistoriquePaiement" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
         <EntityTypeShape EntityType="AMAssosModel.Sortie" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="AMAssosModel.sysdiagram" Width="1.5" PointX="7.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AMAssosModel.sysdiagram" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="AMAssosModel.SortieAdherent" Width="1.5" PointX="5.25" PointY="6.75" IsExpanded="true" />
         <AssociationConnector Association="AMAssosModel.FK_Adherent_Association" ManuallyRouted="false" />
         <AssociationConnector Association="AMAssosModel.FK_HistoriquePaiement_Adherent" ManuallyRouted="false" />
