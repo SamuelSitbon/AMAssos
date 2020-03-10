@@ -141,6 +141,7 @@
     </Compile>
     <Compile Include="Controllers\AdherentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SortiesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -350,6 +351,11 @@
     <Content Include="Views\Adherents\Edit.cshtml" />
     <Content Include="Views\Adherents\Index.cshtml" />
     <Content Include="Views\Adherents\Connexion.cshtml" />
+    <Content Include="Views\Sorties\Create.cshtml" />
+    <Content Include="Views\Sorties\Delete.cshtml" />
+    <Content Include="Views\Sorties\Details.cshtml" />
+    <Content Include="Views\Sorties\Edit.cshtml" />
+    <Content Include="Views\Sorties\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
