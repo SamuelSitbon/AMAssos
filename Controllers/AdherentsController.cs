@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using AMAssos;
+using AMAssos.Utilities;
 
 namespace AMAssos.Controllers
 {
@@ -147,10 +148,10 @@ namespace AMAssos.Controllers
                 {
                     adherent = adherents.First();
 
-                    HttpContext.Session.Add("Adherent", adherent);
+                    HttpContext.Session.Add(Constants.SESSION_ADHERENT, adherent);
 
                     db.SaveChanges();
-                    Session["Adherent"] = adherent;
+                    Session[Constants.SESSION_ADHERENT] = adherent;
 
 
                     return RedirectToAction("Accueil", "Home");

@@ -1,5 +1,7 @@
-﻿@{
-    Adherent adherent = (Adherent)Session["Adherent"];
+﻿@using AMAssos.Utilities
+
+@{
+    Adherent adherent = (Adherent)Session[Constants.SESSION_ADHERENT];
 }
 
 <!DOCTYPE html>
