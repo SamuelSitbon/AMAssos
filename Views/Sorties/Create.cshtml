@@ -1,8 +1,9 @@
 ﻿@model AMAssos.Sortie
+@using AMAssos.Utilities
 
 @{
     ViewBag.Title = "Create";
-    Adherent adherent = (Adherent)Session["Adherent"];
+    Adherent adherent = (Adherent)Session[Constants.SESSION_ADHERENT];
 
 }
 

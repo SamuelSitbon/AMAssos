@@ -38,7 +38,7 @@
                 @if (adherent != null)
                 {
                     <li class="nav-">
-                        <a class="nav-item nav-link" href="@Url.Action("Details","Associations", new { id = adherent.IdAssociation})"><i class="fa fa-list-alt"></i>Sorties</a>
+                        <a class="nav-item nav-link" href="@Url.Action("Details","Associations", new { id = adherent.IdAssociation})"><i class="fa fa-list-alt"></i> Sorties</a>
                     </li>
                 }
             </ul>
@@ -52,31 +52,36 @@
                         </li>
                     </ul>
                 }
-                <ul class="navbar-nav dropdown ml-auto">
-                    <li class="nav-">
-                        <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i>@adherent.Prenom @adherent.Nom</a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="@Url.Action("Edit","Adherents", new { id = adherent.IdAdherent })">Mon Profil</a>
-                            <a class="dropdown-item" href="#">Déconnexion</a>
-                        </div>
-                    </li>
-                </ul>
-                }
-                else
-                {
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-">
-                        <a class="nav-item nav-link" href="@Url.Action("Create","Adherents")">
-                            Inscription
-                        </a>
+                        <a class="nav-item nav-link" href="#">@adherent.Solde <i class="fa fa-eur"></i></a>
                     </li>
-                    <li class="nav-">
-                        <a class="nav-item nav-link" href="@Url.Action("Connexion","Adherents")">
-                            Connexion
-                        </a>
-                    </li>
-                </ul>
-                }
+                   </ul>                 
+                    <ul class="navbar-nav dropdown ml-auto">
+                        <li class="nav-">
+                            <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i>@adherent.Prenom @adherent.Nom</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="@Url.Action("Edit","Adherents", new { id = adherent.IdAdherent })">Mon Profil</a>
+                                <a class="dropdown-item" href="#">Déconnexion</a>
+                            </div>
+                        </li>
+                    </ul>
+                    }
+                    else
+                    {
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-">
+                            <a class="nav-item nav-link" href="@Url.Action("Create","Adherents")">
+                                Inscription
+                            </a>
+                        </li>
+                        <li class="nav-">
+                            <a class="nav-item nav-link" href="@Url.Action("Connexion","Adherents")">
+                                Connexion
+                            </a>
+                        </li>
+                    </ul>
+                    }
             </div>
         </nav>
         <div>
