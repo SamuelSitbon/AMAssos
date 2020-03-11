@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="AMAssosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="AMAssosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Adherent">
           <Key>
             <PropertyRef Name="IdAdherent" />
@@ -32,6 +32,7 @@
           <Property Name="Activite" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Telephone" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Photo" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="HistoriquePaiement">
           <Key>
@@ -57,8 +58,6 @@
           <Property Name="CapaciteMinimum" Type="int" Nullable="false" />
           <Property Name="CapaciteMaximum" Type="int" Nullable="false" />
         </EntityType>
-        <!--Erreurs détectées durant la génération :
-avertissement 6002: La table/vue 'AMAssos.dbo.SortieAdherent' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="SortieAdherent">
           <Key>
             <PropertyRef Name="IdSortie" />
@@ -199,14 +198,8 @@ avertissement 6002: La table/vue 'AMAssos.dbo.SortieAdherent' n'a pas de clé pr
           <EntitySet Name="Association" EntityType="Self.Association" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HistoriquePaiement" EntityType="Self.HistoriquePaiement" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sortie" EntityType="Self.Sortie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SortieAdherent" EntityType="Self.SortieAdherent" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="SortieAdherent" EntityType="Self.SortieAdherent" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [SortieAdherent].[IdSortie] AS [IdSortie], 
-    [SortieAdherent].[IdAdherent] AS [IdAdherent], 
-    [SortieAdherent].[IdAssociation] AS [IdAssociation]
-    FROM [dbo].[SortieAdherent] AS [SortieAdherent]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FK_Adherent_Association" Association="Self.FK_Adherent_Association">
             <End Role="Association" EntitySet="Association" />
             <End Role="Adherent" EntitySet="Adherent" />
@@ -236,8 +229,7 @@ avertissement 6002: La table/vue 'AMAssos.dbo.SortieAdherent' n'a pas de clé pr
             <End Role="SortieAdherent" EntitySet="SortieAdherent" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AMAssosModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -275,6 +267,7 @@ avertissement 6002: La table/vue 'AMAssos.dbo.SortieAdherent' n'a pas de clé pr
           <NavigationProperty Name="HistoriquePaiements" Relationship="Self.FK_HistoriquePaiement_Association" FromRole="Association" ToRole="HistoriquePaiement" />
           <NavigationProperty Name="Sorties" Relationship="Self.FK_Sortie_Association" FromRole="Association" ToRole="Sortie" />
           <NavigationProperty Name="SortieAdherents" Relationship="Self.FK_SortieAdherent_Association" FromRole="Association" ToRole="SortieAdherent" />
+          <Property Name="Photo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="HistoriquePaiement">
           <Key>
@@ -515,6 +508,7 @@ avertissement 6002: La table/vue 'AMAssos.dbo.SortieAdherent' n'a pas de clé pr
           <EntitySetMapping Name="Associations">
             <EntityTypeMapping TypeName="AMAssosModel.Association">
               <MappingFragment StoreEntitySet="Association">
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
                 <ScalarProperty Name="IdAssociation" ColumnName="IdAssociation" />
                 <ScalarProperty Name="Nom" ColumnName="Nom" />
                 <ScalarProperty Name="MontantCotisation" ColumnName="MontantCotisation" />

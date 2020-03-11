@@ -154,7 +154,7 @@ namespace AMAssos.Controllers
                     Session[Constants.SESSION_ADHERENT] = adherent;
 
 
-                    return RedirectToAction("Accueil", "Home");
+                    return RedirectToAction("Details", "Associations", new { id = adherent.IdAssociation });
                 }
                 else
                 {

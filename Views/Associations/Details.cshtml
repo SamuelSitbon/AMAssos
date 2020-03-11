@@ -1,85 +1,16 @@
 ﻿@model AMAssos.Models.AssociationDetailViewModel
 
-<style>
-    body {
-        padding-top: 50px;
-    }
-
-    .ms-card {
-        background-color: #fff;
-        -webkit-box-shadow: 0 1px 6px 1px rgba(69,65,78, 0.1);
-        -moz-box-shadow: 0 1px 6px 1px rgba(69,65,78,0.1);
-        box-shadow: 0 1px 6px 1px rgba(69,65,78,0.1);
-        margin-bottom: 2rem;
-        border-radius: 5px;
-        border: 1px solid rgba(0,0,0,0.1);
-        padding-left: 0px;
-        padding-right: 0px;
-    }
-
-    .ms-card-img img {
-        height: 400px;
-        width: 100%;
-        object-fit: cover;
-        overflow: hidden;
-    }
-
-    .ms-content-wrapper {
-        padding: 30px;
-    }
+@section AddToHead{
+    <link href="@Url.Content("~/Content/Sorties.css")" rel="stylesheet" type="text/css" />
+}
 
 
-    .ms-card-body,
-    .ms-card-footer {
-        position: relative;
-        padding: 1rem;
-        font-size: 14px;
-    }
-
-    .jumbotron {
-        position: relative;
-        overflow: hidden;
-    }
-
-        .jumbotron .container {
-            position: relative;
-            z-index: 2;
-            background: rgba(0,0,0,0.2);
-            padding: 2rem;
-            border: 1px solid rgba(0,0,0,0.1);
-            border-radius: 3px;
-        }
-
-    .jumbotron-background {
-        object-fit: cover;
-        font-family: 'object-fit: cover;';
-        position: absolute;
-        top: 0;
-        z-index: 1;
-        width: 100%;
-        height: 100%;
-        opacity: 0.5;
-    }
-
-    img.blur {
-        -webkit-filter: blur(4px);
-        filter: blur(4px);
-        filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius='4');
-    }
-
-    .blur {
-        height: 500px;
-        width: 100%;
-        object-fit: cover;
-        overflow: hidden;
-    }
-</style>
 
 <div class="jumbotron jumbotron-fluid bg-dark">
 
-    @*<div class="jumbotron-background">
-            <img src="@Url.Content("~/Images/Restaurants/"+ (Model.Association.Photos.FirstOrDefault()?.Nom ?? "default.jpg"))" class="blur ">
-        </div>*@
+    <div class="jumbotron-background">
+            <img src="@Url.Content("~/Images/" + (Model.Association.Activite) + "/" + (Model.Association.Photo))" class="blur ">
+        </div>
 
     <div class="container text-white">
 
@@ -98,7 +29,7 @@
             {
                 <div class="ms-card m-2">
                     <div class="ms-card-img col" style="padding:0px;">
-                        <img src="@Url.Content("~/Images/" + (sorties.Association.Activite) + "/" + (sorties.Photo))"/>
+                        <img src="@Url.Content("~/Images/" + (sorties.Association.Activite) + "/" + (sorties.Photo))" />
                     </div>
                     <div class="ms-card-body">
 
@@ -113,7 +44,7 @@
                         <p>@sorties.Description</p>
                         <div class="new mb-0">
                             <button type="button" class="btn grid-btn mt-0 btn-sm btn-primary" onclick="location.href = '@Url.Content("~/Sorties/Details/" + sorties.IdSortie)'">Voir +</button>
-                            <button type="button" class="btn grid-btn mt-0 btn-sm btn-secondary" onclick="location.href = '@Url.Content("~/Sorties/Edit/" + sorties.IdSortie)'">Edit</button>
+                            <button type="button" class="btn grid-btn mt-0 btn-sm btn-secondary" onclick="location.href = '@Url.Content("~/Sorties/Edit/" + sorties.IdSortie)'">S'inscrire</button>
                         </div>
                     </div>
                 </div>
