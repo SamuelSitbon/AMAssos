@@ -198,6 +198,11 @@
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\Escalade\escaladeAccrobranche.jpg" />
+    <Content Include="Images\Improvisation\improMatch.jpg" />
+    <Content Include="Images\Tennis\tennisForet.jpg" />
+    <Content Include="Images\Tennis\tennisStage.jpg" />
+    <Content Include="Images\Tennis\tennisCamp.png" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -367,7 +372,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Images\" />
+    <Folder Include="Images\General\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
