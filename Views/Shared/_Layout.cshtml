@@ -62,7 +62,7 @@
                             <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i>@adherent.Prenom @adherent.Nom</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="@Url.Action("Edit","Adherents", new { id = adherent.IdAdherent })">Mon Profil</a>
-                                <a class="dropdown-item" href="#">Déconnexion</a>
+                                <a class="dropdown-item" href="@Url.Action("Deconnexion","Adherents")">Déconnexion</a>
                             </div>
                         </li>
                     </ul>

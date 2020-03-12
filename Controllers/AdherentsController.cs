@@ -164,5 +164,15 @@ namespace AMAssos.Controllers
 
             return View(adherent);
         }
+
+        public ActionResult Deconnexion()
+        {
+            if (Session[Constants.SESSION_ADHERENT] != null)
+            {
+               Session[Constants.SESSION_ADHERENT] = null;
+            }
+
+            return RedirectToAction("Connexion", "Adherents");
+        }
     }
 }
